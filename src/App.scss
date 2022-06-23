@@ -1,0 +1,34 @@
+@import './_vars.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'roboto', sans-serif;
+}
+
+.container{
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+button{
+    border: none;
+    
+}
+
+.App {
+    width: 100%;
+    height: 100%;
+    background: $primary-background-color;
+    background: linear-gradient(315deg, $primary-background-color 0%, $secondary-background-color 100%);
+
+}
