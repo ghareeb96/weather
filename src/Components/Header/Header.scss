@@ -33,7 +33,7 @@ header {
             align-items: center;
             transition: all 0.2s ease-out;
 
-            
+
 
             .nav-links {
                 transition: all 0.2s ease-out;
@@ -46,27 +46,33 @@ header {
                     flex-direction: row;
                     align-items: center;
                     background-color: lighten($secondary-background-color, 4);
-                    padding: 0.5rem 1rem;
                     border-radius: 2px;
                     margin-right: 50px;
-    
+
                     input {
                         background-color: lighten($secondary-background-color, 4);
                         border: none;
                         color: #fff;
-    
+                        padding: 0.6rem 0.8rem;
+
                         &::placeholder {
                             color: $text-color;
                             font-size: 0.9rem;
                             opacity: 0.6;
                         }
                     }
-    
-                    .icon {
-                        width: 20px;
-                        height: 20px;
-                        fill: $text-color;
-                        opacity: 0.6;
+
+                    button {
+                        background: none;
+                        padding: 0.6rem 0.8rem;
+                        cursor: pointer;
+                        .icon {
+                            width: 20px;
+                            height: 20px;
+                            fill: $text-color;
+                            opacity: 0.6;
+                            pointer-events: none;
+                        }
                     }
                 }
 
@@ -145,7 +151,7 @@ header {
                     justify-content: space-evenly;
                     transform: translateX(-300px);
 
-                    .location-bar{
+                    .location-bar {
                         margin-right: 0;
                     }
 

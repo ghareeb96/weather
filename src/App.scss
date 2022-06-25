@@ -14,15 +14,23 @@ html {}
     font-family: 'roboto', sans-serif;
 }
 
-.container{
+h1,h2,h3,h4,h5,h6{
+    color: $text-color;
+}
+
+.icon{
+    fill: $text-color;
+}
+
+.container {
     width: 90%;
     max-width: 1440px;
     margin: 0 auto;
 }
 
-button{
+button {
     border: none;
-    
+
 }
 
 .App {
@@ -31,4 +39,102 @@ button{
     background: $primary-background-color;
     background: linear-gradient(315deg, $primary-background-color 0%, $secondary-background-color 100%);
 
+}
+
+
+
+.page {
+    .container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 100px;
+
+
+        .page-details {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            gap: 50px;
+            height: 400px;
+
+            .left-section {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                width: 30%;
+                height: 100%;
+
+                .city-name {
+                    h2 {
+                        color: $primary-accent-color;
+                        letter-spacing: 1px;
+                    }
+                }
+
+                .icon {
+                    width: 80px;
+                }
+
+                .temperature {
+                    h1 {
+                        font-size: 10rem;
+
+                        span {
+                            font-size: 3rem;
+                        }
+                    }
+                }
+
+                .weather-description {
+                    h3 {
+                        letter-spacing: 1px;
+                    }
+                }
+            }
+
+            .right-section {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100%;
+                justify-content: space-evenly;
+
+                .details-section {
+                    display: flex;
+                    flex-direction: row;
+                    width: 80%;
+                    align-items: center;
+                    height: 100px;
+
+
+                    .weather-detail {
+                        &:first-child {
+                            border-right: 1px solid $text-color;
+                        }
+
+                        width: 50%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-evenly;
+
+                        h4{
+                            font-size: 1.3rem;
+                            font-weight: 300;
+                            letter-spacing: 1px;
+                        }
+                        
+                        h2{
+                            font-size: 1.8rem;
+                            color: $secondary-accent-color;
+                            letter-spacing: 1px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

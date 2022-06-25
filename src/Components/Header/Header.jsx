@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import "./Header.scss";
 import { ReactComponent as Menu } from './menu.svg'
 import { ReactComponent as Location } from './address-location.svg'
 import { gsap } from "gsap";
 
 
-const Nav = () => {
+const Header = ({ searchInput, setSearchInput, searchWeather }) => {
 
 
 
+    const handleChange = (e) => {
+        setSearchInput(e.target.value);
+    }
 
     const toggleSidebar = () => {
         const headerElement = document.getElementById("header");
@@ -23,11 +26,6 @@ const Nav = () => {
     }
 
 
-
-    useEffect(() => {
-    }, [])
-
-
     return (
         <header id="header">
             <div className="container">
@@ -40,11 +38,12 @@ const Nav = () => {
 
                     <div className="nav-links">
 
-                    <div className="location-bar">
-                        
-                        <input type="text" name="location" id="location-input" placeholder='Change Location' />
-                        <Location className='icon input-icon address-icon'/>
-                    </div>
+                        <form className="location-bar" action='submit'>
+                            <input type="text" name="location" id="location-input" placeholder='Change Location' onChange={handleChange} value={searchInput}/>
+                            <button onClick={searchWeather}>
+                                <Location className='icon input-icon address-icon' />
+                            </button>
+                        </form>
 
                         <ul>
                             <li>
@@ -74,4 +73,4 @@ const Nav = () => {
     )
 }
 
-export default Nav;
+export default Header;
