@@ -1,13 +1,19 @@
 import React from 'react';
 import "./Header.scss";
 import { ReactComponent as Menu } from './menu.svg'
-import { ReactComponent as Location } from './address-location.svg'
+import { ReactComponent as Location } from './gps.svg'
 import { gsap } from "gsap";
 
 
-const Header = ({ searchInput, setSearchInput, searchWeather }) => {
+const Header = ({ searchInput, setSearchInput, searchWeather, activeTab, setActiveTab }) => {
 
 
+
+    const handleActiveTab = (e)=>{
+        setActiveTab(e.target.id)
+        document.querySelector('.active').classList.remove('active')
+        e.target.classList.add('active')
+    }
 
     const handleChange = (e) => {
         setSearchInput(e.target.value);
@@ -47,15 +53,15 @@ const Header = ({ searchInput, setSearchInput, searchWeather }) => {
 
                         <ul>
                             <li>
-                                <button className='active'>Current Weather</button>
+                                <button id='current-weather' onClick={handleActiveTab} className='tab active'>Current Weather</button>
                             </li>
 
                             <li>
-                                <button>Hourly Weather</button>
+                                <button id='hourly-weather' onClick={handleActiveTab} className='tab '>Hourly Weather</button>
                             </li>
 
                             <li>
-                                <button>Daily Weather</button>
+                                <button id='daily-weather' onClick={handleActiveTab} className='tab '>Daily Weather</button>
                             </li>
 
                         </ul>

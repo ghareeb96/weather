@@ -6,19 +6,22 @@
     box-sizing: border-box;
 }
 
-html {}
-
 #root {
     width: 100vw;
     height: 100vh;
     font-family: 'roboto', sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color: $text-color;
 }
 
-.icon{
+.icon {
     fill: $text-color;
 }
 
@@ -47,7 +50,7 @@ button {
     .container {
         display: flex;
         flex-direction: column;
-        margin-top: 100px;
+        margin-top: 50px;
 
 
         .page-details {
@@ -61,14 +64,30 @@ button {
             .left-section {
                 display: flex;
                 flex-direction: column;
-                justify-content: space-evenly;
+                justify-content: space-between;
                 width: 30%;
                 height: 100%;
 
                 .city-name {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-end;
+
                     h2 {
                         color: $primary-accent-color;
                         letter-spacing: 1px;
+                    }
+
+                    button {
+                        background-color: transparent;
+                        margin-left: 20px;
+                        cursor: pointer;
+
+                        .icon {
+                            width: 25px;
+                            fill: white;
+                            pointer-events: none;
+                        }
                     }
                 }
 
@@ -78,6 +97,14 @@ button {
 
                 .temperature {
                     h1 {
+
+                        h4 {
+                            font-size: 5rem;
+                            color: $primary-accent-color;
+                            display: inline;
+                            margin-right: 20px;
+                        }
+
                         font-size: 10rem;
 
                         span {
@@ -121,17 +148,97 @@ button {
                         align-items: center;
                         justify-content: space-evenly;
 
-                        h4{
+                        h4 {
                             font-size: 1.3rem;
                             font-weight: 300;
                             letter-spacing: 1px;
                         }
-                        
-                        h2{
+
+                        h2 {
                             font-size: 1.8rem;
                             color: $secondary-accent-color;
                             letter-spacing: 1px;
                         }
+                    }
+                }
+            }
+        }
+
+        .filter-weather {
+            width: 100%;
+            height: 150px;
+            display: flex;
+            flex-direction: row;
+            margin-top: 50px;
+            justify-content: center;
+
+            .hour-weather {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100%;
+                width: 180px;
+                justify-content: space-evenly;
+                opacity: 0.4;
+                cursor: pointer;
+                transition: all 0.2s ease-out;
+
+                .icon {
+
+                    width: 30px;
+                }
+
+                .temperature {
+                    h2 {
+                        font-size: 2.2rem;
+                    }
+                }
+
+                .hour {
+                    h4 {
+                        color: $secondary-accent-color;
+
+                    }
+                }
+
+                &:not(:last-child) {
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        right: 0;
+                        top: 25%;
+                        width: 1px;
+                        height: 50%;
+                        background-color: $text-color;
+
+                    }
+                }
+
+                &.active {
+                    opacity: 1;
+                    justify-content: space-between;
+
+                    .icon {
+                        width: 50px;
+                    }
+
+                    .temperature {
+                        h2 {
+                            font-size: 2.4rem;
+                        }
+                    }
+
+                    .hour {
+                        h4 {
+                            color: $secondary-accent-color;
+                            font-size: 1.2rem;
+                        }
+                    }
+
+                    &::after {
+                        opacity: 0.4;
                     }
                 }
             }

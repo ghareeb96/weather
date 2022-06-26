@@ -1,9 +1,10 @@
 import React from 'react'
 import Icon from '../WeatherIcon/WeatherIcon'
+import { ReactComponent as Location } from '../gps.svg'
 
 
 
-const CurrentWeather = ({ city, currentWeather }) => {
+const CurrentWeather = ({ city, currentWeather,getCurrentLocation }) => {
 
 
     return (
@@ -13,6 +14,9 @@ const CurrentWeather = ({ city, currentWeather }) => {
                     <div className="left-section main-details">
                         <div className="city-name">
                             <h2>{city}</h2>
+                            <button onClick = {getCurrentLocation}>
+                                <Location className='icon' />
+                            </button>
                         </div>
                         <div className="weather-icon icon">
                             <Icon
@@ -55,7 +59,7 @@ const CurrentWeather = ({ city, currentWeather }) => {
                                     <h4>Wind Speed</h4>
                                 </div>
                                 <div className="detail-description">
-                                    <h2>{currentWeather.wind_speed}km/h</h2>
+                                    <h2>{currentWeather.wind_speed} km/h</h2>
                                 </div>
                             </div>
                             <div className="weather-detail">
