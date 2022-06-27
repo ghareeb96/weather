@@ -7,7 +7,7 @@ import { ReactComponent as Location } from '../gps.svg'
 const HourlyWeather = ({ city, dailyWeather, getCurrentLocation }) => {
 
     const [activeDay, setActiveDay] = useState(null)
-    const [hoursWeather, setHoursWeather] = useState(null)
+    const [daysWeather, setDaysWeather] = useState(null)
 
     const get_day = (dt_time) => {
         const unix = new Date(dt_time * 1000);
@@ -21,7 +21,7 @@ const HourlyWeather = ({ city, dailyWeather, getCurrentLocation }) => {
 
     useEffect(() => {
         if (dailyWeather) {
-            setHoursWeather(dailyWeather.slice(1, 7))
+            setDaysWeather(dailyWeather.slice(1, 7))
             setActiveDay(dailyWeather[1])
         }
     }, [dailyWeather])
@@ -48,13 +48,11 @@ const HourlyWeather = ({ city, dailyWeather, getCurrentLocation }) => {
 
                             </div>
                             <div className="temperature">
+                                <h4>
+                                    {Math.floor(activeDay.temp.min)}
+                                </h4>
                                 <h1>
-                                    <h4>
-                                        {Math.floor(activeDay.temp.min)}
-                                    </h4>
-
                                     {Math.floor(activeDay.temp.max)}°
-
                                     <span>C</span>
                                 </h1>
                             </div>
@@ -71,7 +69,10 @@ const HourlyWeather = ({ city, dailyWeather, getCurrentLocation }) => {
                                         <h4>Feels like</h4>
                                     </div>
                                     <div className="detail-description">
-                                        <h2>{`${Math.floor(activeDay.feels_like)}`}°C</h2>
+                                        <h6>{Math.floor(activeDay.temp.min)}</h6>
+                                        <h2>
+                                            {Math.floor(activeDay.temp.max)}°C
+                                        </h2>
                                     </div>
                                 </div>
                                 <div className="weather-detail">
@@ -111,27 +112,32 @@ const HourlyWeather = ({ city, dailyWeather, getCurrentLocation }) => {
 
                     </div>
 
-                    <div className="weather-hours filter-weather">
+                    <div className="weather-days filter-weather">
                         {
-                            hoursWeather.map((hour, index) => (
+                            daysWeather.map((day, index) => (
                                 <div
-                                    className={activeDay.dt === hour.dt ? "hour-weather active" : "hour-weather"}
+                                    className={activeDay.dt === day.dt ? "day-weather filter-item active" : "day-weather filter-item"}
 
-                                    onClick={() => { setActiveDay(hoursWeather[index]) }
+                                    onClick={() => { setActiveDay(daysWeather[index]) }
                                     }
 
                                     key={index}
                                 >
                                     <div className="icon">
                                         <Icon
-                                            iconId={hour.weather[0].icon}
+                                            iconId={day.weather[0].icon}
                                         />
                                     </div>
                                     <div className="temperature">
-                                        <h2>{Math.floor(hour.temp)}°C</h2>
+                                        <h6>{Math.floor(day.temp.min)}</h6>
+                                        <h2>
+
+                                            {Math.floor(day.temp.max)}°C
+                                        </h2>
                                     </div>
-                                    <div className="hour"><h4>{get_day(hour.dt)}</h4></div>
+                                    <div className="day"><h4>{get_day(day.dt)}</h4></div>
                                 </div>
+
                             ))
                         }
 

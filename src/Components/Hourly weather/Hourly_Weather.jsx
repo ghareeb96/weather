@@ -107,27 +107,28 @@ const HourlyWeather = ({ city, hourlyWeather, getCurrentLocation }) => {
                     <div className="weather-hours filter-weather">
                         {
                             hoursWeather.map((hour, index) => (
-                                <div
-                                    className={activeHour.dt === hour.dt ? "hour-weather active" : "hour-weather"}
-                                    
-                                    onClick={() => { setActiveHour(hoursWeather[index]) }
-                                    }
+                                    <div
+                                        className={activeHour.dt === hour.dt ? "hour-weather filter-item active" : "hour-weather filter-item"}
 
-                                    key={index}
-                                >
-                                    <div className="icon">
-                                        <Icon
-                                            iconId={hour.weather[0].icon}
-                                        />
+                                        onClick={() => { setActiveHour(hoursWeather[index]) }
+                                        }
+
+                                        key={index}
+                                    >
+                                        <div className="icon">
+                                            <Icon
+                                                iconId={hour.weather[0].icon}
+                                            />
+                                        </div>
+                                        <div className="temperature">
+                                            <h2>{Math.floor(hour.temp)}°C</h2>
+                                        </div>
+                                        <div className="hour"><h4>{get_hour(hour.dt)}</h4></div>
                                     </div>
-                                    <div className="temperature">
-                                        <h2>{Math.floor(hour.temp)}°C</h2>
-                                    </div>
-                                    <div className="hour"><h4>{get_hour(hour.dt)}</h4></div>
-                                </div>
+
                             ))
-                        }
 
+                        }
                     </div>
                 </div>
 

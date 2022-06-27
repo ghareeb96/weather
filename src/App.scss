@@ -50,7 +50,10 @@ button {
     .container {
         display: flex;
         flex-direction: column;
-        margin-top: 50px;
+        margin-top: 80px;
+        height: calc(100vh - 200px);
+        max-height: 800px;
+        justify-content: space-between;
 
 
         .page-details {
@@ -65,7 +68,7 @@ button {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
-                width: 30%;
+                width: 50%;
                 height: 100%;
 
                 .city-name {
@@ -91,21 +94,23 @@ button {
                     }
                 }
 
-                .icon {
+                .weather-icon {
+                    height: 80px;
                     width: 80px;
                 }
 
                 .temperature {
+
+                    h4 {
+                        font-size: 5rem;
+                        color: $primary-accent-color;
+                        display: inline;
+                        margin-right: 20px;
+                    }
+
                     h1 {
-
-                        h4 {
-                            font-size: 5rem;
-                            color: $primary-accent-color;
-                            display: inline;
-                            margin-right: 20px;
-                        }
-
                         font-size: 10rem;
+                        display: inline;
 
                         span {
                             font-size: 3rem;
@@ -127,11 +132,13 @@ button {
                 align-items: center;
                 height: 100%;
                 justify-content: space-evenly;
+                background-color: $primary-background-color;
+                border-radius: 30px;
 
                 .details-section {
                     display: flex;
                     flex-direction: row;
-                    width: 80%;
+                    width: 100%;
                     align-items: center;
                     height: 100px;
 
@@ -155,9 +162,19 @@ button {
                         }
 
                         h2 {
-                            font-size: 1.8rem;
+                            font-size: 2rem;
                             color: $secondary-accent-color;
                             letter-spacing: 1px;
+                            display: inline;
+
+
+                        }
+
+                        h6 {
+                            color: $secondary-accent-color;
+                            display: inline;
+                            margin-right: 10px;
+                            font-size: 1.4rem;
                         }
                     }
                 }
@@ -166,22 +183,25 @@ button {
 
         .filter-weather {
             width: 100%;
-            height: 150px;
+            height: 180px;
             display: flex;
             flex-direction: row;
-            margin-top: 50px;
-            justify-content: center;
+            margin-top: 30px;
+            justify-content: space-between;
+            background-color: $primary-background-color;
+            border-radius: 20px;
 
-            .hour-weather {
+            .filter-item {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 height: 100%;
-                width: 180px;
+                width: 100%;
                 justify-content: space-evenly;
                 opacity: 0.4;
                 cursor: pointer;
                 transition: all 0.2s ease-out;
+                border-radius: 20px;
 
                 .icon {
 
@@ -191,56 +211,138 @@ button {
                 .temperature {
                     h2 {
                         font-size: 2.2rem;
+                        display: inline;
+                    }
+
+                    h6 {
+                        font-size: 1.5rem;
+                        display: inline;
+                        margin-right: 10px;
                     }
                 }
 
-                .hour {
+                .hour,
+                .day {
                     h4 {
                         color: $secondary-accent-color;
-
                     }
                 }
 
-                &:not(:last-child) {
-                    position: relative;
-
-                    &::after {
-                        content: '';
-                        position: absolute;
-                        right: 0;
-                        top: 25%;
-                        width: 1px;
-                        height: 50%;
-                        background-color: $text-color;
-
-                    }
-                }
 
                 &.active {
                     opacity: 1;
-                    justify-content: space-between;
+                    background-color: lighten($secondary-background-color, 20);
 
                     .icon {
                         width: 50px;
+                        fill: $primary-background-color
                     }
 
                     .temperature {
                         h2 {
                             font-size: 2.4rem;
+                            color: $primary-background-color
+                        }
+
+                        h6 {
+                            color: $primary-background-color
                         }
                     }
 
-                    .hour {
+                    .hour,
+                    .day {
                         h4 {
-                            color: $secondary-accent-color;
                             font-size: 1.2rem;
                         }
                     }
 
-                    &::after {
-                        opacity: 0.4;
+
+                }
+            }
+
+
+        }
+    }
+}
+
+
+@media screen and (max-width: 1024px){
+    .page {
+        .container {
+            margin-top: 50px;
+            height: auto;
+            max-height: fit-content;
+    
+            .page-details {
+                flex-direction: column;
+                justify-content: space-between;
+                width: 100%;
+                height: auto;
+    
+                .left-section {
+                    width: auto;
+                    height: 320px;
+                    align-items: center;
+
+              
+                    .temperature {
+    
+                        h4 {
+                            font-size: 3rem;
+                            margin-right: 10px;
+                        }
+    
+                        h1 {
+                            font-size: 5rem;
+    
+                            span {
+                                font-size: 2rem;
+                            }
+                        }
+                    }
+    
+                }
+    
+                .right-section {
+                    gap: 30px;                    
+                    padding: 20px;
+                }
+            }
+    
+            .filter-weather {
+    
+                .filter-item {
+                   
+                    .icon {
+
+                        width: 25px;
+                    }
+    
+                    .temperature {
+                        h2 {
+                            font-size: 1.5rem;
+                        }
+    
+                        h6 {
+                            font-size: 1.2rem;
+                            margin-right: 8px;
+                        }
+                    }
+    
+    
+                    &.active {
+    
+                        .temperature {
+                            h2 {
+                                font-size: 2rem;
+                            }
+    
+                        }
+    
                     }
                 }
+    
+    
             }
         }
     }
