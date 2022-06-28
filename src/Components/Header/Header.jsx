@@ -9,7 +9,7 @@ const Header = ({ searchInput, setSearchInput, searchWeather, activeTab, setActi
 
 
 
-    const handleActiveTab = (e)=>{
+    const handleActiveTab = (e) => {
         setActiveTab(e.target.id)
         document.querySelector('.active').classList.remove('active')
         e.target.classList.add('active')
@@ -26,7 +26,7 @@ const Header = ({ searchInput, setSearchInput, searchWeather, activeTab, setActi
 
     const closeSidebar = (e) => {
         const headerElement = document.getElementById("header");
-        if (!e.target.classList.contains("nav-links") && headerElement.classList.contains("open")) {
+        if (!e.target.classList.contains("nav-links") && !e.target.classList.contains("location-input") && headerElement.classList.contains("open")) {
             headerElement.classList.remove("open");
         }
     }
@@ -45,7 +45,7 @@ const Header = ({ searchInput, setSearchInput, searchWeather, activeTab, setActi
                     <div className="nav-links">
 
                         <form className="location-bar" action='submit'>
-                            <input type="text" name="location" id="location-input" placeholder='Change Location' onChange={handleChange} value={searchInput}/>
+                            <input type="text" className='location-input' name="location" id="location-input" placeholder='Change Location' onChange={handleChange} value={searchInput} />
                             <button onClick={searchWeather}>
                                 <Location className='icon input-icon address-icon' />
                             </button>

@@ -8,7 +8,7 @@
 
 #root {
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     font-family: 'roboto', sans-serif;
 }
 
@@ -38,10 +38,10 @@ button {
 
 .App {
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     background: $primary-background-color;
     background: linear-gradient(315deg, $primary-background-color 0%, $secondary-background-color 100%);
-
+    overflow-x: hidden;
 }
 
 
@@ -126,11 +126,11 @@ button {
             }
 
             .right-section {
-                flex: 1;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 height: 100%;
+                width: 50%;
                 justify-content: space-evenly;
                 background-color: $primary-background-color;
                 border-radius: 30px;
@@ -266,83 +266,211 @@ button {
 }
 
 
-@media screen and (max-width: 1024px){
+@media screen and (max-width: 1024px) {
     .page {
         .container {
             margin-top: 50px;
             height: auto;
             max-height: fit-content;
-    
+
             .page-details {
                 flex-direction: column;
                 justify-content: space-between;
                 width: 100%;
                 height: auto;
-    
+
                 .left-section {
                     width: auto;
                     height: 320px;
                     align-items: center;
 
-              
+
                     .temperature {
-    
+
                         h4 {
                             font-size: 3rem;
                             margin-right: 10px;
                         }
-    
+
                         h1 {
                             font-size: 5rem;
-    
+
                             span {
                                 font-size: 2rem;
                             }
                         }
                     }
-    
+
                 }
-    
+
                 .right-section {
-                    gap: 30px;                    
+                    gap: 30px;
                     padding: 20px;
+                    width: auto;
                 }
             }
-    
+
             .filter-weather {
-    
+
                 .filter-item {
-                   
+
                     .icon {
 
                         width: 25px;
                     }
-    
+
                     .temperature {
                         h2 {
                             font-size: 1.5rem;
                         }
-    
+
                         h6 {
                             font-size: 1.2rem;
                             margin-right: 8px;
                         }
                     }
-    
-    
+
+
                     &.active {
-    
+
                         .temperature {
                             h2 {
                                 font-size: 2rem;
                             }
-    
+
                         }
-    
+
                     }
                 }
-    
-    
+
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .page {
+        .container {
+            margin-top: 30px;
+
+            .page-details {
+                gap: 20px;
+
+                .left-section {
+                    width: auto;
+                    height: 220px;
+                    align-items: center;
+
+                    .weather-icon {
+                        height: 40px;
+                        width: 40px;
+                    }
+
+                    .temperature {
+
+                        h4 {
+                            font-size: 2.5rem;
+                            margin-right: 10px;
+                        }
+
+                        h1 {
+                            font-size: 4rem;
+
+                            span {
+                                font-size: 2rem;
+                            }
+                        }
+                    }
+
+                }
+
+                .right-section {
+                    gap: 20px;
+                    padding: 10px;
+                    border-radius: 10px;
+
+                    .details-section {
+
+                        height: 60px;
+
+                        .weather-detail {
+                            h4 {
+                                font-size: 1rem;
+                                letter-spacing: 0;
+                            }
+
+                            h2 {
+                                font-size: 1.4rem;
+                                letter-spacing: 0;
+
+                            }
+
+                            h6 {
+                                font-size: 1rem;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .filter-weather {
+                flex-wrap: wrap;
+                height: auto;
+                border-radius: 10px;
+
+                .filter-item {
+                    width: calc((100vw * 0.85) / 3);
+                    height: 100px;
+                    border-radius: 10px;
+
+                    .icon {
+                        width: 20px;
+                    }
+
+                    .temperature {
+                        h2 {
+                            font-size: 1.2rem;
+                        }
+
+                        h6 {
+                            font-size: 1rem;
+                            margin-right: 8px;
+                        }
+                    }
+
+                    .hour,
+                    .day {
+                        h4 {
+                            font-size: 0.8rem;
+                        }
+                    }
+
+
+                    &.active {
+
+                        .icon {
+                            width: 30px;
+                        }
+
+                        .temperature {
+                            h2 {
+                                font-size: 1.5rem;
+                            }
+
+                        }
+
+                        .hour,
+                        .day {
+                            h4 {
+                                font-size: 1rem;
+                            }
+                        }
+
+                    }
+                }
+
+
             }
         }
     }
