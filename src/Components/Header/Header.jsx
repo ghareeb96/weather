@@ -2,10 +2,9 @@ import React from 'react';
 import "./Header.scss";
 import { ReactComponent as Menu } from './menu.svg'
 import { ReactComponent as Location } from './gps.svg'
-import { gsap } from "gsap";
 
 
-const Header = ({ searchInput, setSearchInput, searchWeather, activeTab, setActiveTab }) => {
+const Header = ({ searchInput, setSearchInput, searchWeather, setActiveTab }) => {
 
 
 
