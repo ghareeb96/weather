@@ -1,5 +1,5 @@
 # Weather+
-Weather+ is an App implemented by React.js liberary, The App uses OpenWeatherMap Api to Get the weather details of any location.
+Weather+ is an App implemented by React.js library, The App uses OpenWeatherMap Api to Get the weather details of any location.
 
 Demo : https://ghareeb96.github.io/weather/
 
